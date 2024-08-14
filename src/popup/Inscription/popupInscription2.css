@@ -1,0 +1,36 @@
+.modal-content-inscription2 {
+  position: relative;
+  background-color: #fefefe;
+  border-radius: 10px;
+  margin: auto;
+  padding: 50px 20px 30px 10px;
+  width: 72%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 6px 20px 0 rgba(0, 0, 0, 0.055);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    right: 100%;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    right: 100%;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
