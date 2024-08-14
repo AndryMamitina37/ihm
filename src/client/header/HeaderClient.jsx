@@ -208,7 +208,7 @@ export default function HeaderClient(props) {
                       <span>Accueil</span>
                     </Link>
                   </li>
-                  {/* <li className="scroll-to-section">
+                  <li className="scroll-to-section">
                     <Link
                       to="/formation"
                       className={`lien ${
@@ -218,7 +218,7 @@ export default function HeaderClient(props) {
                       <FontAwesomeIcon icon={faContactCard} className="icon" />
                       <span>Information</span>
                     </Link>
-                  </li> */}
+                  </li>
                   <li className="scroll-to-section">
                     <Link
                       to="/emploiDuTemp"
