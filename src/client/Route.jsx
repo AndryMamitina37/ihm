@@ -16,7 +16,7 @@ export default function Index() {
       <HeaderClient />
 
       <Routes>
-        <Route path="/" element={<Accueil />} />
+        <Route path="/ihm" element={<Accueil />} />
         <Route path="/formation" element={<Formation />} />
         <Route path="/emploiDuTemp" element={<EmploiDuTemps />} />
         <Route path="/inscription" element={<Inscription />} />

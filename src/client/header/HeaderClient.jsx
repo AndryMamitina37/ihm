@@ -67,7 +67,7 @@ export default function HeaderClient(props) {
         <ul style={{ display: "block" }} className="">
           <li className="scroll-to-section">
             <Link
-              to="/"
+              to="/ihm"
               className={`lien ${activeTab === "/" ? "active" : ""}`}
             >
               <FontAwesomeIcon icon={faHome} className="icon" />
@@ -201,7 +201,7 @@ export default function HeaderClient(props) {
                 <ul className="nav">
                   <li className="scroll-to-section">
                     <Link
-                      to="/"
+                      to="/ihm"
                       className={`lien ${activeTab === "/" ? "active" : ""}`}
                     >
                       <FontAwesomeIcon icon={faHome} className="icon" />
