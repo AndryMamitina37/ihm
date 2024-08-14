@@ -23,7 +23,7 @@ export default function HeaderClient(props) {
   const { width } = useWindowSize();
 
   // Définir un seuil pour les différentes tailles d'écran
-  const isMobile = width >= 1430; // Par exemple, une taille d'écran mobile
+  const isMobile = width >= 730; // Par exemple, une taille d'écran mobile
 
   const eni = `${Lien}${"/enico.png"}`;
   const { window } = props;
@@ -197,76 +197,65 @@ export default function HeaderClient(props) {
                   </h1>
                 </Box>
               </div>
-              {isMobile && (
-                <Box sx={{ display: { xs: "none", sm: "block" } }}>
-                  <ul className="nav">
-                    <li className="scroll-to-section">
-                      <Link
-                        to="/"
-                        className={`lien ${activeTab === "/" ? "active" : ""}`}
-                      >
-                        <FontAwesomeIcon icon={faHome} className="icon" />
-                        <span>Accueil</span>
-                      </Link>
-                    </li>
-                    <li className="scroll-to-section">
-                      <Link
-                        to="/formation"
-                        className={`lien ${
-                          activeTab === "/formation" ? "active" : ""
-                        }`}
-                      >
-                        <FontAwesomeIcon
-                          icon={faContactCard}
-                          className="icon"
-                        />
-                        <span>Avis d'inscription</span>
-                      </Link>
-                    </li>
-                    <li className="scroll-to-section">
-                      <Link
-                        to="/emploiDuTemp"
-                        className={`lien ${
-                          activeTab === "/emploiDuTemp" ? "active" : ""
-                        }`}
-                      >
-                        <FontAwesomeIcon
-                          icon={faContactCard}
-                          className="icon"
-                        />
+              <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                <ul className="nav">
+                  <li className="scroll-to-section">
+                    <Link
+                      to="/"
+                      className={`lien ${activeTab === "/" ? "active" : ""}`}
+                    >
+                      <FontAwesomeIcon icon={faHome} className="icon" />
+                      <span>Accueil</span>
+                    </Link>
+                  </li>
+                  <li className="scroll-to-section">
+                    <Link
+                      to="/formation"
+                      className={`lien ${
+                        activeTab === "/formation" ? "active" : ""
+                      }`}
+                    >
+                      <FontAwesomeIcon icon={faContactCard} className="icon" />
+                      <span>Avis d'inscription</span>
+                    </Link>
+                  </li>
+                  <li className="scroll-to-section">
+                    <Link
+                      to="/emploiDuTemp"
+                      className={`lien ${
+                        activeTab === "/emploiDuTemp" ? "active" : ""
+                      }`}
+                    >
+                      <FontAwesomeIcon icon={faContactCard} className="icon" />
 
-                        <span>Emploi du temps</span>
-                      </Link>
-                    </li>
-                    <li className="scroll-to-section">
-                      <Link
-                        to="/inscription"
-                        className={`lien ${
-                          activeTab === "/inscription" ? "active" : ""
-                        }`}
-                      >
-                        <FontAwesomeIcon icon={faBook} className="icon" />
-                        <span>S'inscrire</span>
-                      </Link>
-                    </li>
+                      <span>Emploi du temps</span>
+                    </Link>
+                  </li>
+                  <li className="scroll-to-section">
+                    <Link
+                      to="/inscription"
+                      className={`lien ${
+                        activeTab === "/inscription" ? "active" : ""
+                      }`}
+                    >
+                      <FontAwesomeIcon icon={faBook} className="icon" />
+                      <span>S'inscrire</span>
+                    </Link>
+                  </li>
 
-                    <li className="scroll-to-section">
-                      <Link
-                        to="/contact"
-                        className={`lien ${
-                          activeTab === "/contact" ? "active" : ""
-                        }`}
-                      >
-                        <FontAwesomeIcon
-                          icon={faContactBook}
-                          className="icon"
-                        />
-                        <span>Contact</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </Box>
-              )}
+                  <li className="scroll-to-section">
+                    <Link
+                      to="/contact"
+                      className={`lien ${
+                        activeTab === "/contact" ? "active" : ""
+                      }`}
+                    >
+                      <FontAwesomeIcon icon={faContactBook} className="icon" />
+                      <span>Contact</span>
+                    </Link>
+                  </li>
+                </ul>
+              </Box>
             </nav>
             <nav>
               <Drawer
