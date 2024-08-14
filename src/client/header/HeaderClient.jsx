@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useWindowSize from "./WindowsSize";
 import {
   faBook,
   faContactBook,
@@ -19,6 +20,11 @@ import {
 } from "@mui/material";
 const drawerWidth = 240;
 export default function HeaderClient(props) {
+  const { width } = useWindowSize();
+
+  // Définir un seuil pour les différentes tailles d'écran
+  const isMobile = width >= 1430; // Par exemple, une taille d'écran mobile
+
   const eni = `${Lien}${"/enico.png"}`;
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -44,7 +50,17 @@ export default function HeaderClient(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        ENI
+        <Box>
+          <i>
+            <img
+              src={eni}
+              alt=""
+              className="logo"
+              style={{ width: "80px", borderRadius: "100%" }}
+            />
+          </i>
+        </Box>
+        ENI Fianarantsoa
       </Typography>
       <Divider />
       <List>
@@ -116,95 +132,141 @@ export default function HeaderClient(props) {
   // }, [location]);
 
   return (
-    <header className="header-area header-sticky">
+    <header
+      className="header-area header-sticky"
+      style={
+        isMobile ? { backgroundColor: "white" } : { backgroundColor: "#0c7c69" }
+      }
+    >
       <div className="container">
         <div className="row">
           <div className="col-12">
             <nav className="main-nav">
               <div
                 className="logo"
-                style={{ display: "flex", justifyContent: "center" }}
+                style={{
+                  display: "flex",
+                }}
               >
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  edge="start"
-                  onClick={handleDrawerToggle}
-                  sx={{ mr: 2, display: { sm: "none" } }}
+                {!isMobile && (
+                  <Box>
+                    <IconButton
+                      color="inherit"
+                      aria-label="open drawer"
+                      edge="start"
+                      onClick={handleDrawerToggle}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </Box>
+                )}
+
+                {isMobile && (
+                  <Box>
+                    <i>
+                      <img
+                        src={eni}
+                        alt=""
+                        className="logo"
+                        style={{ width: "80px", borderRadius: "100%" }}
+                      />
+                    </i>
+                  </Box>
+                )}
+
+                <Box
+                  sx={
+                    isMobile
+                      ? { padding: "30px 0 0 20px" }
+                      : { padding: "0 0 20px 20px" }
+                  }
                 >
-                  <MenuIcon />
-                </IconButton>
-                <i>
-                  <img
-                    src={eni}
-                    alt=""
-                    style={{ width: "30%", borderRadius: "100%" }}
-                    className="img-eni"
-                  />
-                </i>
-                <h1>
-                  <strong style={{ color: "#017e6d" }}>ENI</strong> Fianarantsoa
-                </h1>
+                  <h1>
+                    <strong
+                      style={
+                        isMobile ? { color: "#017e6d" } : { color: "white" }
+                      }
+                    >
+                      ENI
+                    </strong>{" "}
+                    <span
+                      style={isMobile ? { color: "black" } : { color: "white" }}
+                    >
+                      Fianarantsoa
+                    </span>
+                  </h1>
+                </Box>
               </div>
-              <Box sx={{ display: { xs: "none", sm: "block" } }}>
-                <ul className="nav">
-                  <li className="scroll-to-section">
-                    <Link
-                      to="/"
-                      className={`lien ${activeTab === "/" ? "active" : ""}`}
-                    >
-                      <FontAwesomeIcon icon={faHome} className="icon" />
-                      <span>Accueil</span>
-                    </Link>
-                  </li>
-                  <li className="scroll-to-section">
-                    <Link
-                      to="/formation"
-                      className={`lien ${
-                        activeTab === "/formation" ? "active" : ""
-                      }`}
-                    >
-                      <FontAwesomeIcon icon={faContactCard} className="icon" />
-                      <span>Avis d'inscription</span>
-                    </Link>
-                  </li>
-                  <li className="scroll-to-section">
-                    <Link
-                      to="/emploiDuTemp"
-                      className={`lien ${
-                        activeTab === "/emploiDuTemp" ? "active" : ""
-                      }`}
-                    >
-                      <FontAwesomeIcon icon={faContactCard} className="icon" />
+              {isMobile && (
+                <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                  <ul className="nav">
+                    <li className="scroll-to-section">
+                      <Link
+                        to="/"
+                        className={`lien ${activeTab === "/" ? "active" : ""}`}
+                      >
+                        <FontAwesomeIcon icon={faHome} className="icon" />
+                        <span>Accueil</span>
+                      </Link>
+                    </li>
+                    <li className="scroll-to-section">
+                      <Link
+                        to="/formation"
+                        className={`lien ${
+                          activeTab === "/formation" ? "active" : ""
+                        }`}
+                      >
+                        <FontAwesomeIcon
+                          icon={faContactCard}
+                          className="icon"
+                        />
+                        <span>Avis d'inscription</span>
+                      </Link>
+                    </li>
+                    <li className="scroll-to-section">
+                      <Link
+                        to="/emploiDuTemp"
+                        className={`lien ${
+                          activeTab === "/emploiDuTemp" ? "active" : ""
+                        }`}
+                      >
+                        <FontAwesomeIcon
+                          icon={faContactCard}
+                          className="icon"
+                        />
 
-                      <span>Emploi du temps</span>
-                    </Link>
-                  </li>
-                  <li className="scroll-to-section">
-                    <Link
-                      to="/inscription"
-                      className={`lien ${
-                        activeTab === "/inscription" ? "active" : ""
-                      }`}
-                    >
-                      <FontAwesomeIcon icon={faBook} className="icon" />
-                      <span>S'inscrire</span>
-                    </Link>
-                  </li>
+                        <span>Emploi du temps</span>
+                      </Link>
+                    </li>
+                    <li className="scroll-to-section">
+                      <Link
+                        to="/inscription"
+                        className={`lien ${
+                          activeTab === "/inscription" ? "active" : ""
+                        }`}
+                      >
+                        <FontAwesomeIcon icon={faBook} className="icon" />
+                        <span>S'inscrire</span>
+                      </Link>
+                    </li>
 
-                  <li className="scroll-to-section">
-                    <Link
-                      to="/contact"
-                      className={`lien ${
-                        activeTab === "/contact" ? "active" : ""
-                      }`}
-                    >
-                      <FontAwesomeIcon icon={faContactBook} className="icon" />
-                      <span>Contact</span>
-                    </Link>
-                  </li>
-                </ul>
-              </Box>
+                    <li className="scroll-to-section">
+                      <Link
+                        to="/contact"
+                        className={`lien ${
+                          activeTab === "/contact" ? "active" : ""
+                        }`}
+                      >
+                        <FontAwesomeIcon
+                          icon={faContactBook}
+                          className="icon"
+                        />
+                        <span>Contact</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </Box>
+              )}
             </nav>
             <nav>
               <Drawer

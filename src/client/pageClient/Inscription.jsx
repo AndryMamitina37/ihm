@@ -142,7 +142,18 @@ export default function Inscription() {
   return (
     <div style={{ paddingTop: "10%" }}>
       {visibleP1 && (
-        <div className="modal-content-inscription">
+        <div
+          style={{
+            position: "relative",
+            backgroundColor: "#fefefe",
+            borderRadius: "10px",
+            margin: "auto",
+            padding: "50px 20px 30px 10px",
+            width: "72%",
+            boxShadow:
+              "0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 6px 20px 0 rgba(0, 0, 0, 0.055)",
+          }}
+        >
           <div className="modal-header-inscription">
             <h2>Inscription L1</h2>
           </div>

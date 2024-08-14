@@ -1,30 +1,157 @@
 import React, { useEffect, useState } from "react";
-//import { data } from "./data";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 import Swal from "sweetalert2";
+
 export default function EmploiDuTemp() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([
+    {
+      jour: "Lundi",
+      heure: [
+        "",
+        "8:00 - 9:00",
+        "9:00 - 10:00",
+        "10:00 - 11:00",
+        "11:00 - 12:00",
+        "13:00 - 14:00",
+        "14:00 - 15:00",
+      ],
+      salle: [
+        "",
+        "Salle A",
+        "Salle B",
+        "Salle C",
+        "Salle D",
+        "Salle E",
+        "Salle F",
+      ],
+    },
+    {
+      jour: "Mardi",
+      heure: [
+        "",
+        "8:00 - 9:00",
+        "9:00 - 10:00",
+        "10:00 - 11:00",
+        "11:00 - 12:00",
+        "13:00 - 14:00",
+        "14:00 - 15:00",
+      ],
+      salle: [
+        "",
+        "Salle A",
+        "Salle B",
+        "Salle C",
+        "Salle D",
+        "Salle E",
+        "Salle F",
+      ],
+    },
+    {
+      jour: "Mercredi",
+      heure: [
+        "",
+        "8:00 - 9:00",
+        "9:00 - 10:00",
+        "10:00 - 11:00",
+        "11:00 - 12:00",
+        "13:00 - 14:00",
+        "14:00 - 15:00",
+      ],
+      salle: [
+        "",
+        "Salle A",
+        "Salle B",
+        "Salle C",
+        "Salle D",
+        "Salle E",
+        "Salle F",
+      ],
+    },
+    {
+      jour: "Jeudi",
+      heure: [
+        "",
+        "8:00 - 9:00",
+        "9:00 - 10:00",
+        "10:00 - 11:00",
+        "11:00 - 12:00",
+        "13:00 - 14:00",
+        "14:00 - 15:00",
+      ],
+      salle: [
+        "",
+        "Salle A",
+        "Salle B",
+        "Salle C",
+        "Salle D",
+        "Salle E",
+        "Salle F",
+      ],
+    },
+    {
+      jour: "Vendredi",
+      heure: [
+        "",
+        "8:00 - 9:00",
+        "9:00 - 10:00",
+        "10:00 - 11:00",
+        "11:00 - 12:00",
+        "13:00 - 14:00",
+        "14:00 - 15:00",
+      ],
+      salle: [
+        "",
+        "Salle A",
+        "Salle B",
+        "Salle C",
+        "Salle D",
+        "Salle E",
+        "Salle F",
+      ],
+    },
+    {
+      jour: "Samedi",
+      heure: [
+        "",
+        "8:00 - 9:00",
+        "9:00 - 10:00",
+        "10:00 - 11:00",
+        "11:00 - 12:00",
+        "13:00 - 14:00",
+        "14:00 - 15:00",
+      ],
+      salle: [
+        "",
+        "Salle A",
+        "Salle B",
+        "Salle C",
+        "Salle D",
+        "Salle E",
+        "Salle F",
+      ],
+    },
+  ]);
+
   const niveaux = ["L1", "L2", "L3", "M1", "M2"];
   const [toSave, setToSave] = useState("L1");
 
   const truc = (e) => {
     setToSave(e.target.value);
   };
-  try {
-  } catch (error) {}
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await fetch("http://localhost:5002/get-data/" + toSave)
-          .then((response) => response.json())
-          .then((jsonData) => {
-            setData(jsonData);
-          });
+        const response = await fetch(
+          "http://localhost:5002/get-data/" + toSave
+        );
+        const jsonData = await response.json();
+        setData(jsonData);
       } catch (error) {
         Swal.fire({
           color: "red",
           title: "erreur de connexion",
-          text: "vérifier votre connexion",
+          text: "vérifiez votre connexion",
         });
       }
     };

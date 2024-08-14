@@ -14,6 +14,7 @@ export default function Index() {
       {/* 
       {showPopupInscrip && <PopupInscription onClick={togglePopupInscrip} />} */}
       <HeaderClient />
+
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/formation" element={<Formation />} />

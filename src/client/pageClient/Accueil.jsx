@@ -3,10 +3,15 @@ import React from "react";
 // import img3 from "../../icons/eni/en8.jpg";
 // import img4 from "../../icons/eni/en2.jpg";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Lien from "../../Lien";
 export default function Accueil() {
+  const eni = `${Lien}${"/eni3.jpg"}`;
   return (
-    <div className="main-banner">
-      <div className="col-lg-12">
+    <div className="main-banner" style={{ backgroundImage: `url(${eni})` }}>
+      <div
+        className="col-lg-12"
+        style={{ backgroundColor: "#3d41408a", paddingTop: "10%" }}
+      >
         <div className="owl-carousel owl-banner" style={{ paddingLeft: "6%" }}>
           <div className="item item-1">
             <span className="category">Universit&eacute; de Fianarantsoa</span>
