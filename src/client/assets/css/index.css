@@ -513,9 +513,9 @@ Header Style
   .img-eni {
     display: none;
   }
+
   .header-area .main-nav .nav li {
-    padding-left: 2px;
-    padding-right: 2px;
+    display: none;
   }
   .header-area .main-nav .nav li a {
     padding-left: 10px;

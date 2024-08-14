@@ -23,7 +23,7 @@ export default function HeaderClient(props) {
   const { width } = useWindowSize();
 
   // Définir un seuil pour les différentes tailles d'écran
-  const isMobile = width >= 730; // Par exemple, une taille d'écran mobile
+  const isMobile = width >= 1000; // Par exemple, une taille d'écran mobile
 
   const eni = `${Lien}${"/enico.png"}`;
   const { window } = props;
@@ -80,7 +80,7 @@ export default function HeaderClient(props) {
               className={`lien ${activeTab === "/formation" ? "active" : ""}`}
             >
               <FontAwesomeIcon icon={faContactCard} className="icon" />
-              <span>Avis d'inscription</span>
+              <span>Information</span>
             </Link>
           </li>
           <li className="scroll-to-section">
@@ -216,7 +216,7 @@ export default function HeaderClient(props) {
                       }`}
                     >
                       <FontAwesomeIcon icon={faContactCard} className="icon" />
-                      <span>Avis d'inscription</span>
+                      <span>Information</span>
                     </Link>
                   </li>
                   <li className="scroll-to-section">
